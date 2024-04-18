@@ -1,12 +1,10 @@
 import { Category } from '../model/Category'
+import {
+  ICategoriesRepository,
+  ICreateCategoryDTO,
+} from './ICategoriesRepository'
 
-// DTO
-interface ICreateCategoryDTO {
-  name: string
-  description: string
-}
-
-export class CategoryRepository {
+export class CategoryRepository implements ICategoriesRepository {
   private categories: Category[]
 
   constructor() {
@@ -28,7 +26,7 @@ export class CategoryRepository {
   }
 
   // Verificar esse dois tipos de retorno da função findByName
-  findByName(name: string): Category | undefined {
+  findByName(name: string): Category {
     const category = this.categories.find((category) => category.name === name)
     return category
   }
