@@ -25,9 +25,9 @@ export class CategoryRepository implements ICategoriesRepository {
     return this.categories
   }
 
-  // Verificar esse dois tipos de retorno da função findByName
-  findByName(name: string): Category {
+  findByName(name: string): Category | undefined {
     const category = this.categories.find((category) => category.name === name)
+
     return category
   }
 }
