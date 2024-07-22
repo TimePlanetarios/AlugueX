@@ -9,3 +9,5 @@ export interface ISpecificationRepository {
   create({ name, description }: ISpecificationDTO): void
   findByname(name: string): Specification | undefined
 }
+
+
