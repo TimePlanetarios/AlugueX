@@ -5,7 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "dev": "tsx watch --inspect src/server.ts",
+    "dev": "src/server.ts",
     "lint": "eslint src --ext .ts --fix",
     "build": "tsup src --out-dir build"
   },
