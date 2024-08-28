@@ -14,8 +14,8 @@ categoryRoutes.post('/', (req, res) => {
   return createCategoryController.handle(req, res)
 })
 
-categoryRoutes.get('/', (req, res) => {
-  return listCategoriesController.handle(req, res)
+categoryRoutes.get('/', async (req, res) => {
+  return await listCategoriesController.handle(req, res)
 })
 
 categoryRoutes.post('/import', upload.single('file'), (req, res) => {
