@@ -1,4 +1,18 @@
 services:
+  database:
+    image: bitnami/postgresql:latest
+    container_name: database
+    restart: always
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRESQL_USER=docker
+      - POSTGRESQL_PASSWORD=aluguex
+      - POSTGRESQL_DATABASE=rentx
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    networks: 
+      - host
   app:
     build:
       context: .
@@ -6,3 +20,12 @@ services:
     container_name: rentx
     ports:
       - 3333:3333
+    networks: 
+      - host
+
+volumes:
+  postgres_data:
+
+networks:
+  host:
+    driver: bridge
